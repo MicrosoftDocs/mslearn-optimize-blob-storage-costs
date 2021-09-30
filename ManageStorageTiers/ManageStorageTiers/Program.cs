@@ -14,7 +14,7 @@ namespace ManageStorageTiers
             DoWorkAsync().GetAwaiter().GetResult();
 
             Console.WriteLine("Press any key to exit the sample application.");
-            Console.ReadLine();
+            Console.ReadKey();
         }
 
         static async Task DoWorkAsync()
@@ -46,9 +46,9 @@ namespace ManageStorageTiers
 
             await foreach (var blobItem in blobItems)
             {
-                Console.WriteLine($"  Blob name {blobItem.Name}:   Tier {blobItem.Properties.AccessTier}");
+                Console.WriteLine($"  Blob name: {blobItem.Name}   Tier: {blobItem.Properties.AccessTier}");
             }
-        }
+        } 
 
         private static async Task UpdateBlobTiers(BlobContainerClient blobContainerClient)
         {
